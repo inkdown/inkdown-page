@@ -1,0 +1,68 @@
+export const metadata = {
+  title: "Editor Features",
+  slug: "editor-features",
+  order: 2,
+};
+
+# Editor Features
+
+Inkdown provides a rich set of features to enhance your writing experience.
+
+## Live Preview
+
+The live preview updates as you type, showing exactly how your markdown will render.
+
+### Split View Mode
+
+```typescript
+import { Editor } from '@inkdown/core';
+
+const editor = new Editor({
+  mode: 'split', // 'edit' | 'preview' | 'split'
+  theme: 'default-light'
+});
+```
+
+## Command Palette
+
+Press `Cmd+P` (Mac) or `Ctrl+P` (Windows/Linux) to open the command palette.
+
+### Available Commands
+
+- **File Operations**: Create, open, save, delete
+- **Editor Actions**: Format, search, replace
+- **View Options**: Toggle preview, change theme
+- **Plugin Commands**: Custom commands from plugins
+
+## Keyboard Shortcuts
+
+| Action | macOS | Windows/Linux |
+|--------|-------|---------------|
+| Save | `Cmd+S` | `Ctrl+S` |
+| Find | `Cmd+F` | `Ctrl+F` |
+| Command Palette | `Cmd+P` | `Ctrl+P` |
+| Toggle Preview | `Cmd+Shift+P` | `Ctrl+Shift+P` |
+
+## Smart Formatting
+
+Inkdown automatically formats your markdown:
+
+- Auto-completes brackets and quotes
+- Indents lists automatically
+- Converts URLs to links
+- Formats tables as you type
+
+```markdown
+| Column 1 | Column 2 |
+|----------|----------|
+| Data 1   | Data 2   |
+```
+
+## File Explorer
+
+The sidebar shows your workspace structure with:
+
+- 📁 Folders and subfolders
+- 📄 Markdown files
+- 🔖 Bookmarks
+- 🔍 Search results

@@ -1,0 +1,42 @@
+export const metadata = {
+  version: "0.1.0",
+  date: "Dec 7, 2025",
+  platforms: ["Desktop"],
+  title: "Initial Release - Desktop Editor",
+};
+
+## Features
+
+- Modern markdown editor with **live preview**
+- Plugin system with hot reload support
+- Theme customization system
+- File explorer and workspace management
+- Command palette for quick actions
+
+## Performance
+
+- Optimized rendering for large documents
+- Lazy loading for plugins
+
+## Getting Started with plugins
+
+To start using Inkdown plugin api, you can read the [documentation](/docs) or visit our [github project](https://github.com/inkdown/inkdown):
+
+```typescript
+import { Plugin } from 'indown-api';
+
+export default class MyPlugin extends Plugin {
+  onload() {
+    // Register a new command
+    this.addCommand({
+      id: 'hello-world',
+      name: 'Say Hello',
+      callback: () => {
+        console.log('Hello from Inkdown!');
+      }
+    });
+  }
+}
+```
+
+> **Note**: This is the first stable release of Inkdown. We're excited to see what you build with it!

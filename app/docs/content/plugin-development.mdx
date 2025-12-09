@@ -1,0 +1,108 @@
+export const metadata = {
+  title: "Plugin Development",
+  slug: "plugin-development",
+  order: 3,
+};
+
+# Plugin Development
+
+Learn how to create powerful plugins for Inkdown.
+
+## Plugin Architecture
+
+Plugins extend Inkdown's functionality through a well-defined API.
+
+### Basic Plugin Structure
+
+```typescript
+import { Plugin } from '@inkdown/plugin-api';
+
+export class MyPlugin extends Plugin {
+  async onload() {
+    console.log('Plugin loaded!');
+    
+    // Register commands
+    this.addCommand({
+      id: 'my-command',
+      name: 'My Custom Command',
+      callback: () => {
+        this.showNotification('Command executed!');
+      }
+    });
+  }
+
+  async onunload() {
+    console.log('Plugin unloaded!');
+  }
+}
+```
+
+## Plugin API
+
+### Commands
+
+Add custom commands to the command palette:
+
+```typescript
+this.addCommand({
+  id: 'insert-timestamp',
+  name: 'Insert Timestamp',
+  callback: () => {
+    const timestamp = new Date().toISOString();
+    this.editor.insertText(timestamp);
+  },
+  hotkey: 'Cmd+Shift+T'
+});
+```
+
+### Custom Views
+
+Create custom sidebar views:
+
+```typescript
+this.registerView({
+  type: 'my-view',
+  displayText: 'My Custom View',
+  icon: 'star',
+  onOpen: (container) => {
+    container.innerHTML = '<div>Custom content</div>';
+  }
+});
+```
+
+### Settings
+
+Add settings to your plugin:
+
+```typescript
+this.addSettingTab({
+  id: 'my-settings',
+  name: 'My Plugin Settings',
+  settings: [
+    {
+      key: 'apiKey',
+      name: 'API Key',
+      type: 'text',
+      placeholder: 'Enter your API key'
+    }
+  ]
+});
+```
+
+## Publishing Your Plugin
+
+Once your plugin is ready, publish it to npm:
+
+```bash
+npm publish
+```
+
+Then submit to the Inkdown plugin directory for discovery.
+
+## Best Practices
+
+- ✅ Follow naming conventions (`inkdown-plugin-*`)
+- ✅ Include comprehensive documentation
+- ✅ Add tests for your plugin
+- ✅ Handle errors gracefully
+- ✅ Respect user settings and preferences

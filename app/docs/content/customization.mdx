@@ -1,0 +1,107 @@
+export const metadata = {
+  title: "Customization",
+  slug: "customization",
+  order: 4,
+};
+
+# Customization
+
+Make Inkdown your own with themes, fonts, and custom settings.
+
+## Themes
+
+Inkdown comes with beautiful built-in themes and supports custom themes.
+
+### Built-in Themes
+
+- **Default Light** - Clean and minimal
+- **Default Dark** - Easy on the eyes
+- **Gruvbox** - Retro groove colors
+- **Solarized** - Precision colors for machines and people
+- **Dracula** - Dark theme with vibrant colors
+
+### Changing Themes
+
+```typescript
+import { setTheme } from '@inkdown/core';
+
+setTheme('default-dark');
+```
+
+## Creating Custom Themes
+
+Create your own theme with CSS:
+
+```css
+[data-theme="my-theme"] {
+  --bg-primary: #ffffff;
+  --text-primary: #24292f;
+  --color-primary: #0969da;
+  
+  /* Code highlighting */
+  --code-bg: #f6f8fa;
+  --code-keyword: #cf222e;
+  --code-string: #0a3069;
+  --code-function: #8250df;
+}
+```
+
+## Font Settings
+
+Customize fonts for editor and preview:
+
+```json
+{
+  "editor": {
+    "fontFamily": "SF Mono, Monaco, Consolas",
+    "fontSize": 14,
+    "lineHeight": 1.6
+  }
+}
+```
+
+## Editor Settings
+
+Configure editor behavior:
+
+```json
+{
+  "editor": {
+    "wordWrap": true,
+    "lineNumbers": true,
+    "autoSave": true,
+    "autoSaveDelay": 1000,
+    "tabSize": 2,
+    "insertSpaces": true
+  }
+}
+```
+
+## Workspace Settings
+
+Organize your workspace:
+
+```json
+{
+  "workspace": {
+    "defaultFolder": "~/Documents/Notes",
+    "showHiddenFiles": false,
+    "sortBy": "name",
+    "sortOrder": "asc"
+  }
+}
+```
+
+## Keyboard Shortcuts
+
+Customize shortcuts in settings:
+
+```json
+{
+  "shortcuts": {
+    "save": "Cmd+S",
+    "search": "Cmd+F",
+    "commandPalette": "Cmd+P"
+  }
+}
+```

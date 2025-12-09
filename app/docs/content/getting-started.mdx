@@ -1,0 +1,84 @@
+export const metadata = {
+  title: "Getting Started",
+  slug: "getting-started",
+  order: 1,
+};
+
+# Getting Started with Inkdown
+
+Welcome to Inkdown! This guide will help you get started with our modern markdown editor.
+
+## What is Inkdown?
+
+Inkdown is a powerful, extensible markdown editor designed for your workflow. Whether you're writing documentation, taking notes, or creating content, Inkdown provides a seamless experience with:
+
+- **Real-time Preview** - See your markdown rendered as you type
+- **Plugin System** - Extend functionality with custom plugins
+- **Theme Support** - Customize the look and feel
+- **Cross-Platform Sync** - Access your notes anywhere
+
+## Installation
+
+### Desktop Application
+
+Download the latest version for your platform:
+
+```bash
+# macOS
+brew install inkdown
+
+# Windows
+winget install inkdown
+
+# Linux
+sudo snap install inkdown
+```
+
+### First Launch
+
+When you first open Inkdown, you'll see:
+
+1. **Welcome Screen** - Quick introduction to key features
+2. **Workspace Setup** - Choose or create your workspace folder
+3. **Tutorial** - Optional guided tour
+
+## Quick Start
+
+### Creating Your First Note
+
+```typescript
+// Create a new note
+const note = await inkdown.createNote({
+  title: "My First Note",
+  content: "# Hello, Inkdown!\n\nThis is my first note."
+});
+```
+
+### Basic Markdown Syntax
+
+Inkdown supports all standard markdown syntax:
+
+- **Bold** with `**text**`
+- *Italic* with `*text*`
+- `Code` with backticks
+- [Links](https://inkdown.dev)
+- Lists and more!
+
+## Next Steps
+
+Now that you have Inkdown installed, check out:
+
+- [Editor Features](/docs/editor-features) - Learn about advanced editing capabilities
+- [Plugin Development](/docs/plugin-development) - Create your own plugins
+- [Customization](/docs/customization) - Themes and settings
+
+## Contributing
+
+Inkdown is **open source**! We welcome contributions from the community:
+
+- 📝 [Documentation](https://github.com/inkdown/inkdown-page) - Help improve these docs
+- 🐛 [Bug Reports](https://github.com/inkdown/inkdown/issues) - Report issues
+- 💡 [Feature Requests](https://github.com/inkdown/inkdown/discussions) - Share your ideas
+- 🔧 [Pull Requests](https://github.com/inkdown/inkdown/pulls) - Contribute code
+
+> **Note**: This documentation itself is open source! Found a typo or want to add examples? Submit a PR to help others learn.

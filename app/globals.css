@@ -1,26 +1,356 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  /* Background */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f6f8fa;
+  --bg-sidebar: #fafbfc;
+
+  /* Text */
+  --text-primary: #24292f;
+  --text-secondary: #57606a;
+  --text-muted: #8c959f;
+
+  /* Border */
+  --border-color: #d0d7de;
+
+  /* Primary Colors */
+  --color-primary: #0969da;
+  --color-primary-hover: #0550ae;
+
+  /* Editor / Syntax Highlighting */
+  --syntax-keyword: #cf222e;
+  --syntax-string: #0a3069;
+  --syntax-function: #8250df;
+  --syntax-comment: #6e7781;
+  --syntax-number: #0550ae;
+  --syntax-operator: #cf222e;
+  --syntax-class: #953800;
+  --syntax-punctuation: #24292f;
+
+  /* Code Block Colors (matching Inkdown app) */
+  --code-bg: #f6f8fa;
+  --code-text: #24292f;
+  --code-keyword: #cf222e;
+  --code-string: #0a3069;
+  --code-comment: #6e7781;
+  --code-function: #8250df;
+  --code-number: #0550ae;
+  --code-operator: #cf222e;
+  --code-meta: #953800;
+  --code-punctuation: #24292f;
 }
 
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
+  --color-bg-primary: var(--bg-primary);
+  --color-bg-secondary: var(--bg-secondary);
+  --color-bg-sidebar: var(--bg-sidebar);
+  
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+  
+  --color-border-color: var(--border-color);
+  
+  --color-primary: var(--color-primary);
+  --color-primary-hover: var(--color-primary-hover);
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  --color-syntax-keyword: var(--syntax-keyword);
+  --color-syntax-string: var(--syntax-string);
+  --color-syntax-function: var(--syntax-function);
+  --color-syntax-comment: var(--syntax-comment);
+  --color-syntax-number: var(--syntax-number);
+  --color-syntax-operator: var(--syntax-operator);
+  --color-syntax-class: var(--syntax-class);
+  --color-syntax-punctuation: var(--syntax-punctuation);
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+}
+
+/* MDX Content Styling */
+.mdx-content {
+  @apply max-w-none;
+}
+
+.mdx-content p {
+  font-size: 0.9375rem;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-family: inherit;
+}
+
+.mdx-content h1 {
+  font-size: 1.875rem;
+  font-weight: 700;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  color: var(--text-primary);
+}
+
+.mdx-content h2 {
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+  color: var(--text-primary);
+  padding-bottom: 0.375rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.mdx-content h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  margin-top: 1.5rem;
+  margin-bottom: 0.625rem;
+  color: var(--text-primary);
+}
+
+.mdx-content h4 {
+  font-size: 1.125rem;
+  font-weight: 600;
+  margin-top: 1.25rem;
+  margin-bottom: 0.5rem;
+  color: var(--text-primary);
+}
+
+.mdx-content ul,
+.mdx-content ol {
+  margin-bottom: 1rem;
+  padding-left: 1.5rem;
+  font-size: 0.9375rem;
+}
+
+.mdx-content li {
+  margin-bottom: 0.375rem;
+  line-height: 1.7;
+}
+
+.mdx-content a {
+  color: var(--color-primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.mdx-content a:hover {
+  text-decoration: underline;
+}
+
+.mdx-content blockquote {
+  border-left: 4px solid var(--color-primary);
+  padding-left: 1rem;
+  margin: 1.5rem 0;
+  color: var(--text-secondary);
+  font-style: italic;
+  background: var(--bg-secondary);
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.mdx-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-size: 0.875rem;
+}
+
+.mdx-content th {
+  background: var(--bg-secondary);
+  padding: 0.75rem 1rem;
+  text-align: left;
+  font-weight: 600;
+  border: 1px solid var(--border-color);
+}
+
+.mdx-content td {
+  padding: 0.75rem 1rem;
+  border: 1px solid var(--border-color);
+}
+
+.mdx-content code {
+  background: var(--bg-secondary);
+  padding: 0.2rem 0.4rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  color: var(--syntax-keyword);
+  font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace !important;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+.mdx-content pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+}
+
+/* Code Blocks Base Styling */
+.mdx-content pre[class*="language-"] {
+  color: var(--code-text) !important;
+  padding: 16px !important;
+  border-radius: 8px !important;
+  font-size: 0.9rem !important;
+  line-height: 1.8 !important;
+  overflow-x: auto;
+  margin: 1.5rem 0;
+  font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace !important;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+.mdx-content code[class*="language-"] {
+  background: transparent !important;
+  color: var(--code-text) !important;
+  font-size: 0.875rem !important;
+  font-family: var(--font-jetbrains-mono), 'JetBrains Mono', monospace !important;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+}
+
+/* Prism Syntax Highlighting - Inkdown Style */
+
+/* Comments */
+.mdx-content .token.comment,
+.mdx-content .token.prolog,
+.mdx-content .token.doctype,
+.mdx-content .token.cdata {
+  color: var(--code-comment) !important;
+  font-style: italic;
+}
+
+/* Keywords */
+.mdx-content .token.keyword,
+.mdx-content .token.selector,
+.mdx-content .token.important,
+.mdx-content .token.atrule,
+.mdx-content .token.builtin {
+  color: var(--code-keyword) !important;
+  font-weight: 600;
+}
+
+/* Strings */
+.mdx-content .token.string,
+.mdx-content .token.char,
+.mdx-content .token.attr-value,
+.mdx-content .token.regex {
+  color: var(--code-string) !important;
+}
+
+/* Functions */
+.mdx-content .token.function,
+.mdx-content .token.function-variable {
+  color: var(--code-function) !important;
+  font-weight: 600;
+}
+
+/* Numbers */
+.mdx-content .token.number,
+.mdx-content .token.boolean,
+.mdx-content .token.constant {
+  color: var(--code-number) !important;
+}
+
+/* Classes and Types */
+.mdx-content .token.class-name,
+.mdx-content .token.type-definition,
+.mdx-content .token.maybe-class-name {
+  color: var(--syntax-class) !important;
+  font-weight: 600;
+}
+
+/* Operators */
+.mdx-content .token.operator,
+.mdx-content .token.entity,
+.mdx-content .token.url {
+  color: var(--code-operator) !important;
+}
+
+/* Punctuation */
+.mdx-content .token.punctuation {
+  color: var(--code-punctuation) !important;
+}
+
+/* Variables and Properties */
+.mdx-content .token.variable,
+.mdx-content .token.property {
+  color: var(--code-text) !important;
+}
+
+/* Tags (HTML/JSX) */
+.mdx-content .token.tag {
+  color: var(--code-keyword) !important;
+}
+
+.mdx-content .token.tag .token.punctuation {
+  color: var(--code-punctuation) !important;
+}
+
+.mdx-content .token.attr-name {
+  color: var(--code-function) !important;
+  font-style: italic;
+}
+
+/* Code Block Wrapper with Copy Button */
+.code-block-wrapper {
+  position: relative;
+  margin: 1.5rem 0;
+}
+
+.code-block-wrapper pre {
+  margin: 0 !important;
+}
+
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  padding: 6px 8px;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  opacity: 0;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.copy-button:hover {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border-color: var(--color-primary);
+}
+
+.copy-button:active {
+  transform: scale(0.95);
+}
+
+.code-block-wrapper:hover .copy-button {
+  opacity: 1;
+}
+
+.copy-button svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* Scrollbar for code blocks */
+.mdx-content pre::-webkit-scrollbar {
+  height: 8px;
+}
+
+.mdx-content pre::-webkit-scrollbar-track {
+  background: var(--code-bg);
+}
+
+.mdx-content pre::-webkit-scrollbar-thumb {
+  background: var(--border-color);
+  border-radius: 4px;
+}
+
+.mdx-content pre::-webkit-scrollbar-thumb:hover {
+  background: var(--text-muted);
 }
